@@ -15,7 +15,7 @@ class PiedraPapelTijeras
     end
 
     def obtener_maquina
-        @tiradas.sample
+        @maquina = @tiradas.sample
     end
 
     def jugar
