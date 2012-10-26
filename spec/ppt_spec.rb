@@ -28,7 +28,11 @@ describe PiedraPapelTijeras do
     end
     
     it "Se debe invocar al metodo obtener_humano() para recoger la tirada del humano y que esta sea valida" do
-        @ppt_obj.tiradas.include? @ppt_obj.obtener_humano()
+        @ppt_obj.tiradas.include? @ppt_obj.obtener_humano
+    end
+    
+    it "Se debe invocar al metodo obtener_maquina() para recoger la tirada de la maquina y que esta sea valida" do
+        @ppt_obj.tiradas.include? @ppt_obt.obtener_maquina
     end
     
         
