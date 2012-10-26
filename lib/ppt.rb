@@ -6,4 +6,9 @@ class PiedraPapelTijeras
         @tiradas = plays
         @ganadoras = wins
     end
+    
+    def obtener_humano
+        return @humano
+    end
+    
 end
