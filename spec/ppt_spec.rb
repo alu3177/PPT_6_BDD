@@ -13,7 +13,7 @@ describe PiedraPapelTijeras do
         @ppt_obj.humano.should == humano
     end
     
-    if "Debe existir una tirada para la maquina" do
+    it "Debe existir una tirada para la maquina" do
         @ppt_obj.maquina.should == maquina
     end
     

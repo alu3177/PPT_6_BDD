@@ -1,6 +1,7 @@
 class PiedraPapelTijeras
-    attr_reader :humano
-    def initialize (human)
+    attr_reader :humano, :maquina
+    def initialize (human, machine)
         @humano = human
+        @maquina = machine
     end
 end
