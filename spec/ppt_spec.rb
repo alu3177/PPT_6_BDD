@@ -10,7 +10,7 @@ describe PiedraPapelTijeras do
     let (:resultado) { nil }
 
     before :all do
-        @ppt_obj = PiedraPapelTijeras.new(humano, maquina, tiradas, ganadoras, resultados, resultado)
+        @ppt_obj = PiedraPapelTijeras.new(humano, maquina, tiradas, ganadoras, resultados)
     end
 
     it "Debe existir una tirada para el humano" do

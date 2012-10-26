@@ -1,13 +1,13 @@
 class PiedraPapelTijeras
     attr_accessor :humano
     attr_reader :maquina, :tiradas, :ganadoras, :resultados, :resultado
-    def initialize (human, machine, plays, wins, results, result)
+    def initialize (human=nil, machine=nil, plays, wins, results)
         @humano = human
         @maquina = machine
         @tiradas = plays
         @ganadoras = wins
         @resultados = results
-        @resultado = result
+        @resultado = nil
     end
 
     def obtener_humano
