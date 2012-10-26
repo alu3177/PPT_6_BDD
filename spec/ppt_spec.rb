@@ -4,9 +4,14 @@ describe PiedraPapelTijeras do
 
     let (:humano) { :piedra }
     let (:maquina) { :tijeras }
+    let (:tiradas) { [:piedra, :papel, :tijeras] }
 
     before :all do
-        @ppt_obj = PiedraPapelTijeras.new(humano, maquina)
+        @ganadoras = { :piedra => :tijeras,
+                       :papel => :piedra,
+                       :tijeras => :papel
+                     }
+        @ppt_obj = PiedraPapelTijeras.new(humano, maquina, tiradas, @ganadoras)
     end
     
     it "Debe existir una tirada para el humano" do
@@ -15,6 +20,11 @@ describe PiedraPapelTijeras do
     
     it "Debe existir una tirada para la maquina" do
         @ppt_obj.maquina.should == maquina
+    end
+    
+    it "Debe existir una lista de jugadas posibles y quien gana" do
+        @ppt_obj.tiradas.should == tiradas
+        @ppt_obj.ganadoras.should == @ganadoras
     end
     
         
