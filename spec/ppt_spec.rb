@@ -7,7 +7,7 @@ describe PiedraPapelTijeras do
     let (:tiradas) { [:piedra, :papel, :tijeras] }
     let (:ganadoras) { {:piedra => :tijeras, :papel => :piedra, :tijeras => :papel} }
     let (:resultados) { [:gane, :perdi, :empate] }
-    let (:resultado) { :gane }
+    let (:resultado) { nil }
 
     before :all do
         @ppt_obj = PiedraPapelTijeras.new(humano, maquina, tiradas, ganadoras, resultados, resultado)
@@ -40,6 +40,10 @@ describe PiedraPapelTijeras do
 
     it "Debe existir un resultado para un juego, desde el punto de vista de la maquina" do
         @ppt_obj.resultado.should == resultado
+    end
+
+    it "Se debe invocar al metodo jugar() para determinar el ganador de la tirada" do
+        @ppt_obj.resultados.include? @ppt_obj.jugar
     end
 
 

@@ -17,4 +17,15 @@ class PiedraPapelTijeras
         @tiradas.sample
     end
 
+    def jugar
+        case @humano
+            when @maquina
+                return @resultados[2]
+            when @ganadoras[@maquina]
+                return @resultados[1]
+            else
+                return @resultados[0]
+        end
+    end
+
 end
