@@ -11,4 +11,8 @@ class PiedraPapelTijeras
         return @humano
     end
     
+    def obtener_maquina
+        @tiradas.sample
+    end
+    
 end
