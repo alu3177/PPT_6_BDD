@@ -5,13 +5,11 @@ describe PiedraPapelTijeras do
     let (:humano) { :piedra }
     let (:maquina) { :tijeras }
     let (:tiradas) { [:piedra, :papel, :tijeras] }
+    let (:ganadoras) { {:piedra => :tijeras, :papel => :piedra, :tijeras => :papel} }
+    let (:resultados) { [:gane, :perdi, :empate] }
 
     before :all do
-        @ganadoras = { :piedra => :tijeras,
-                       :papel => :piedra,
-                       :tijeras => :papel
-                     }
-        @ppt_obj = PiedraPapelTijeras.new(humano, maquina, tiradas, @ganadoras)
+        @ppt_obj = PiedraPapelTijeras.new(humano, maquina, tiradas, ganadoras, resultados)
     end
     
     it "Debe existir una tirada para el humano" do
@@ -24,7 +22,7 @@ describe PiedraPapelTijeras do
     
     it "Debe existir una lista de jugadas posibles y quien gana" do
         @ppt_obj.tiradas.should == tiradas
-        @ppt_obj.ganadoras.should == @ganadoras
+        @ppt_obj.ganadoras.should == ganadoras
     end
     
     it "Se debe invocar al metodo obtener_humano() para recoger la tirada del humano y que esta sea valida" do
@@ -33,6 +31,10 @@ describe PiedraPapelTijeras do
     
     it "Se debe invocar al metodo obtener_maquina() para recoger la tirada de la maquina y que esta sea valida" do
         @ppt_obj.tiradas.include? @ppt_obj.obtener_maquina
+    end
+    
+    it "Debe existir una lista de resultados de un juego desde el punto de vista de la maquina" do
+        @ppt_obj.resultados.should == resultados
     end
     
         
