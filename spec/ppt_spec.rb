@@ -46,6 +46,14 @@ describe PiedraPapelTijeras do
         @ppt_obj.resultados.include? @ppt_obj.jugar
     end
 
+    it "Se debe de comprobar que las tiradas de la maquina, al ser aleatorias, recorren todas las posibilidades" do
+        machine = []
+        30.times do
+            machine.push @ppt_obj.obtener_maquina
+        end
+        machine.uniq.length.should >= @ppt_obj.tiradas.length
+    end
+
 
 
 end
