@@ -54,6 +54,17 @@ describe PiedraPapelTijeras do
         machine.uniq.length.should >= @ppt_obj.tiradas.length
     end
 
+    it "Se debe comprobar que las tiradas de la maquina y del humano no son siempre la misma" do
+        human = []
+        machine = []
+        30.times do
+            @ppt_obj.humano = @ppt_obj.tiradas.sample
+            human.push @ppt_obj.humano
+            machine.push @ppt_obj.obtener_maquina
+        end
+        (human.uniq.length.should >= @ppt_obj.tiradas.length) and (machine.uniq.length.should >= @ppt_obj.tiradas.length)
+    end
+
 
 
 end
