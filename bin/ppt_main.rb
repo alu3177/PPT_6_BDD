@@ -1,6 +1,4 @@
 require 'ppt'
-
-
 ganadoras = { :piedra => :tijeras,
               :papel => :piedra,
               :tijeras => :papel
