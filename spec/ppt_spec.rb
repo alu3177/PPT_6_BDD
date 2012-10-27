@@ -6,7 +6,7 @@ describe PiedraPapelTijeras do
     let (:maquina) { :tijeras }
     let (:tiradas) { [:piedra, :papel, :tijeras] }
     let (:ganadoras) { {:piedra => :tijeras, :papel => :piedra, :tijeras => :papel} }
-    let (:resultados) { [:gane, :perdi, :empate] }
+    let (:resultados) { ganadoras.keys.uniq }
     let (:resultado) { nil }
 
     before :all do
@@ -22,7 +22,7 @@ describe PiedraPapelTijeras do
     end
 
     it "Debe existir una lista de jugadas posibles y quien gana" do
-        @ppt_obj.tiradas.should == tiradas
+        @ppt_obj.tiradas.should == @ppt_obj.ganadoras.keys.uniq
         @ppt_obj.ganadoras.should == ganadoras
     end
 
@@ -62,7 +62,7 @@ describe PiedraPapelTijeras do
             human.push @ppt_obj.humano
             machine.push @ppt_obj.obtener_maquina
         end
-        (human.uniq.length.should >= @ppt_obj.tiradas.length) and (machine.uniq.length.should >= @ppt_obj.tiradas.length)
+        ( (human.uniq.length and machine.uniq.length) >= @ppt_obj.tiradas.length )
     end
 
 

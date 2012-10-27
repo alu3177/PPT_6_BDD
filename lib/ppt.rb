@@ -1,10 +1,14 @@
 class PiedraPapelTijeras
     attr_accessor :humano
     attr_reader :maquina, :tiradas, :ganadoras, :resultados, :resultado
-    def initialize (human=nil, machine=nil, plays, wins, results)
+    def initialize (human, machine, plays, wins, results)
         @humano = human
         @maquina = machine
-        @tiradas = plays
+        if plays.kind_of? Array
+            @tiradas = plays
+        else
+            @tiradas = wins.keys.uniq
+        end
         @ganadoras = wins
         @resultados = results
         @resultado = nil
@@ -15,18 +19,19 @@ class PiedraPapelTijeras
     end
 
     def obtener_maquina
-        @tiradas.sample
+        @maquina = @tiradas.sample
     end
 
     def jugar
         case @humano
             when @maquina
-                return @resultados[2]
+                @resultado = @resultados[2]
             when @ganadoras[@maquina]
-                return @resultados[1]
+                @resultado = @resultados[1]
             else
-                return @resultados[0]
+                @resultado = @resultados[0]
         end
+        return @resultado
     end
 
 end
