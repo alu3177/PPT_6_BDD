@@ -4,12 +4,12 @@ describe PiedraPapelTijeras do
 
     let (:humano) { :piedra }
     let (:maquina) { :tijeras }
-    let (:tiradas) { [:piedra, :papel, :tijeras] }
     let (:ganadoras) { {:piedra => :tijeras, :papel => :piedra, :tijeras => :papel} }
-    let (:resultados) { ganadoras.keys.uniq }
+    let (:tiradas) { ganadoras.keys.uniq }
+    let (:resultados) { [:gano, :pierdo, :empato] }
     let (:resultado) { nil }
 
-    before :all do
+    before :each do     # Usamos :each en lugar de :all, para evitar que entren en conflicto los tests
         @ppt_obj = PiedraPapelTijeras.new(humano, maquina, tiradas, ganadoras, resultados)
     end
 
@@ -39,7 +39,8 @@ describe PiedraPapelTijeras do
     end
 
     it "Debe existir un resultado para un juego, desde el punto de vista de la maquina" do
-        @ppt_obj.resultado.should == resultado
+        @ppt_obj.jugar
+        @ppt_obj.resultado.should == :gano  # Piedra Vs Tijeras
     end
 
     it "Se debe invocar al metodo jugar() para determinar el ganador de la tirada" do

@@ -15,7 +15,7 @@ class PiedraPapelTijeras
     end
 
     def obtener_humano
-        return @humano
+        return @humano if (@tiradas.include? @humano)
     end
 
     def obtener_maquina
