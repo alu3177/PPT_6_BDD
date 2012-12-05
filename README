@@ -1,3 +1,4 @@
+(Práctica finalizada)
 Considere el desarrollo de una clase Ruby para representar el juego de Piedra-Papel-Tijeras. Empiece desde cero, no reciclando código de las prácticas anteriores. La clave de esta práctica está en diseñar pruebas que dirijan el desarrollo y si reutiliza el desarrollo anterior estará haciéndolo mal.
 
 1) Cree una Clase PiedraPapelTijeras usando Desarrollo Dirigido por el Comportamiento (Behavior Driven Development - BDD) como caso particular del Desarrollo dirigido por pruebas (Test Driven Development - TDD) usando como herramienta Rspec. 
